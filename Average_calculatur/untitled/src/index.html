@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MI3 — S5 Semester Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="badge">MI3 · Semester 5</div>
+    <h1>Grade<br>Calculator</h1>
+    <p>Enter CC &amp; Exam scores to compute module averages and your semester result. 
+       Scores out of <span>20</span>.</p>
+  </div>
+
+  <div class="card">
+    <div class="col-head">
+      <span>Module</span>
+      <span style="text-align:center">Coef</span>
+      <span style="text-align:center">CC</span>
+      <span style="text-align:center">Exam</span>
+      <span style="text-align:center">Average</span>
+    </div>
+
+    <!-- Modules -->
+    <div class="module-row">
+      <div class="module-name">Databases</div>
+      <div class="coef-wrap"><span class="coef-badge">5</span></div>
+      <input type="number" id="cc1" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex1" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg1">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Network Foundation 1</div>
+      <div class="coef-wrap"><span class="coef-badge">4</span></div>
+      <input type="number" id="cc2" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex2" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg2">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Introduction to AI</div>
+      <div class="coef-wrap"><span class="coef-badge">4</span></div>
+      <input type="number" id="cc3" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex3" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg3">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Introduction to Cybersecurity</div>
+      <div class="coef-wrap"><span class="coef-badge">4</span></div>
+      <input type="number" id="cc4" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex4" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg4">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Linear Programming</div>
+      <div class="coef-wrap"><span class="coef-badge">4</span></div>
+      <input type="number" id="cc5" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex5" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg5">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Software Engineering</div>
+      <div class="coef-wrap"><span class="coef-badge">3</span></div>
+      <input type="number" id="cc6" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex6" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg6">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Languages Theory</div>
+      <div class="coef-wrap"><span class="coef-badge">2</span></div>
+      <input type="number" id="cc7" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex7" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg7">—</span></div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-name">Technical English 1</div>
+      <div class="coef-wrap"><span class="coef-badge">2</span></div>
+      <input type="number" id="cc8" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <input type="number" id="ex8" min="0" max="20" step="0.25" placeholder="—" oninput="calculate()">
+      <div class="avg-wrap"><span class="avg-pill" id="avg8">—</span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn-primary" onclick="calculate()">Calculate</button>
+    <button class="btn-ghost" onclick="resetAll()">Reset</button>
+  </div>
+  <p class="tip">Most modules: CC <span>40%</span> · Exam <span>60%</span> &nbsp;|&nbsp; Network Foundation 1: CC <span>50%</span> · Exam <span>50%</span> &nbsp;|&nbsp; Total coefs: <span>28</span></p>
+
+  <!-- Result -->
+  <div class="result-card" id="resultCard">
+    <div>
+      <div class="result-label">Semester Average</div>
+      <div class="result-value" id="resultValue">—</div>
+    </div>
+    <div class="v-divider"></div>
+    <div class="result-meta">
+      <div class="result-status" id="resultStatus">Awaiting input</div>
+      <div class="result-desc" id="resultDesc">Fill in your scores above</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <!-- Mini stats -->
+  <div class="stats-row">
+    <div class="stat-chip">
+      <div class="sc-label">Modules entered</div>
+      <div class="sc-val" id="statFilled">0 / 8</div>
+    </div>
+    <div class="stat-chip">
+      <div class="sc-label">Passing modules</div>
+      <div class="sc-val" id="statPassing">—</div>
+    </div>
+    <div class="stat-chip">
+      <div class="sc-label">Highest average</div>
+      <div class="sc-val" id="statBest">—</div>
+    </div>
+    <div class="stat-chip">
+      <div class="sc-label">Lowest average</div>
+      <div class="sc-val" id="statWorst">—</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
