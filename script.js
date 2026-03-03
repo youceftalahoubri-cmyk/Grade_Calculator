@@ -1,10 +1,10 @@
 const modules = [
-    { id: 1, coef: 5, ccW: 0.4, exW: 0.6 },
+    { id: 1, coef: 5, ccW: 0.5, exW: 0.5 },
     { id: 2, coef: 4, ccW: 0.5, exW: 0.5 }, // Network Foundation 1: 50/50
     { id: 3, coef: 4, ccW: 0.4, exW: 0.6 },
     { id: 4, coef: 4, ccW: 0.4, exW: 0.6 },
-    { id: 5, coef: 4, ccW: 0.4, exW: 0.6 },
-    { id: 6, coef: 3, ccW: 0.4, exW: 0.6 },
+    { id: 5, coef: 4, ccW: 0.5, exW: 0.5 },
+    { id: 6, coef: 3, ccW: 0.5, exW: 0.5 },
     { id: 7, coef: 2, ccW: 0.4, exW: 0.6 },
     { id: 8, coef: 2, ccW: 0.4, exW: 0.6 },
   ];
